@@ -24,7 +24,7 @@ export default function Login() {
     const searchParams = useSearchParams();
 
     //Hier heb ik een useEffect gemaakt dat laat een succesmelding zien als je net geregristreerd bent.
-	//Deze effect gebeurd wel alleen wanneer de component wordt geladen.
+    //Deze effect gebeurd wel alleen wanneer de component wordt geladen.
     useEffect(() => {
         if (searchParams.get('registered') === 'true') {
             setShowSuccessMessage(true);
@@ -65,7 +65,7 @@ export default function Login() {
             );
             const idToken = await userCredential.user.getIdToken();
 
-            
+
             const response = await fetch('/api/auth/login', {
                 method: 'POST',
                 headers: {
@@ -79,13 +79,13 @@ export default function Login() {
                 throw new Error(data.message || 'Failed to set session.');
             }
 
-           
+
             const redirectedFrom = searchParams.get('redirectedFrom');
             router.push(redirectedFrom || '/');
         } catch (err) {
             console.error('Login or Session Error:', err);
             setLoading(false);
-            
+
             if (err instanceof FirebaseError) {
                 if (
                     err.code === 'auth/invalid-email' ||
@@ -130,7 +130,7 @@ export default function Login() {
             setResetMessage('Password reset email sent! Check your inbox.');
         } catch (err) {
             console.error('Password Reset Error:', err);
-			// Hier word een foutmelding laten zien, je hebt verschillende voor verschillende errors
+            // Hier word een foutmelding laten zien, je hebt verschillende voor verschillende errors
             if (err instanceof FirebaseError) {
                 if (err.code === 'auth/user-not-found') {
                     setError('No user found with this email address.');
