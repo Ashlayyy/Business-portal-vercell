@@ -16,7 +16,6 @@ interface FirestoreUserData {
 
 // Dit is een TypeScript type dat een gecombineerde gebruiker beschrijft. 
 // Zo kan ik in de applicatie 1 object gebruiker dat alle gegevens bevat.
-
 export type CombinedUser = {
     id: string;
     email?: string;

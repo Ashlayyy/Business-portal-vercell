@@ -274,7 +274,6 @@ export default function UserManagementClient({
                                             header.getContext()
                                         )}
                                         {{
-
                                             asc: ' 🔼',
                                             desc: ' 🔽',
                                         }[header.column.getIsSorted() as string] ?? null}
@@ -419,7 +418,7 @@ function UserForm({
             {/* Voor een foutmelding in het formulier */}
             {error && <p className={styles.errorBannerModal}>{error}</p>}
 
-               {/* De HTML van de render */}
+            {/* De HTML van de render */}
             <div>
                 <label htmlFor="email">Email:</label>
                 <input
