@@ -97,7 +97,7 @@ export async function addUserAction(
 			kvk: formData.kvk || '',
 			createdAt: admin.firestore.FieldValue.serverTimestamp(),
 		};
-		await db.collection('companies').doc(newUserRecord.uid).set(userData);
+		await db.collection('users').doc(newUserRecord.uid).set(userData);
 		console.log('User data saved to Firestore for UID:', newUserRecord.uid);
 
 		revalidatePath('/companies');

@@ -29,19 +29,24 @@
 	transition: all 0.2s ease;
 	background-color: #f1f5f9;
 	font-weight: 500;
+	border: 2px solid transparent;
 
 	&:hover {
 		background-color: #e2e8f0;
-		color: #1a202c;
+		color: #1a202cad;
 	}
+}
 
-	&__active {
-		background-color: #e2e8f0;
-		color: #1a202c;
+.filterTab__active {
+	background-color: #1a202c !important;
+	color: white !important;
+	border: 2px solid white !important;
+	font-weight: 600 !important;
 
-		&:hover {
-			background-color: #e2e8f0;
-		}
+	&:hover {
+		background-color: #1a202c !important;
+		color: white !important;
+		border: 2px solid white !important;
 	}
 }
 

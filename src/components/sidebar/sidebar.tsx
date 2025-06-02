@@ -173,7 +173,7 @@ const Sidebar = ({ isOpen, setIsOpen, isAdmin }: SidebarProps) => {
 							<SidebarItem
 								onClick={() => setIsOpen(false)}
 								href="/activities/approve"
-								label="Unapproved activities"
+								label="Pending Activities"
 							/>
 						</ul>
 					</nav>
@@ -204,15 +204,8 @@ const SidebarItem = ({ href, label, onClick }: SidebarItemProps) => {
 const HeaderItem = ({ href, label }: { href: string; label: string }) => {
 	const pathname = usePathname();
 
-	const searchParams = useSearchParams();
-
-	// Extract filter from the link and from the current URL
-	const url = new URL(href, 'http://localhost'); // Use base to parse query string
-	const targetFilter = url.searchParams.get('filter');
-	const currentFilter = searchParams.get('filter');
-
-	// Make it active if pathname matches and filter matches
-	const isActive = pathname === url.pathname && targetFilter === currentFilter;
+	// Header navigation should only care about pathname, not query parameters
+	const isActive = pathname === href;
 
 	return (
 		<li className={styles.header__navItem}>

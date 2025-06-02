@@ -488,31 +488,33 @@ const ActiviteitCard: React.FC<ActiviteitCardProps> = ({
 						</a>
 					</Link>
 				</div>
-				<div
-					className={`${styles.toggle} ${
-						isToggled ? styles['toggle--online'] : styles.toggle__on
-					} ${isUpdating ? styles.toggle__disabled : ''}`}
-					onClick={(e) => {
-						e.stopPropagation();
-						handleToggle();
-					}}
-				>
-					<span className={styles.toggle__label}>
-						<span
-							className={styles.onlineLabel}
-							style={{ opacity: isToggled ? 1 : 0, pointerEvents: 'none' }}
-						>
-							Online
+				{badgeConfig.label === 'Published' && (
+					<div
+						className={`${styles.toggle} ${
+							isToggled ? styles['toggle--online'] : styles.toggle__on
+						} ${isUpdating ? styles.toggle__disabled : ''}`}
+						onClick={(e) => {
+							e.stopPropagation();
+							handleToggle();
+						}}
+					>
+						<span className={styles.toggle__label}>
+							<span
+								className={styles.onlineLabel}
+								style={{ opacity: isToggled ? 1 : 0, pointerEvents: 'none' }}
+							>
+								Online
+							</span>
+							<span
+								className={styles.offlineLabel}
+								style={{ opacity: !isToggled ? 1 : 0, pointerEvents: 'none' }}
+							>
+								Offline
+							</span>
 						</span>
-						<span
-							className={styles.offlineLabel}
-							style={{ opacity: !isToggled ? 1 : 0, pointerEvents: 'none' }}
-						>
-							Offline
-						</span>
-					</span>
-					<div className={styles.toggle__circle}></div>
-				</div>
+						<div className={styles.toggle__circle}></div>
+					</div>
+				)}
 			</div>
 		</div>
 	);
