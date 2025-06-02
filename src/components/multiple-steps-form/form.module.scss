@@ -7,6 +7,7 @@
 	position: relative;
 	box-shadow: 0.1rem 0.1rem 1rem 0.1rem rgba(0, 0, 0, 0.2);
 	width: 100%;
+	min-height: auto;
 	max-height: 80vh;
 	padding: 2rem;
 	border-radius: 8px;
@@ -28,7 +29,7 @@
 		flex-direction: column;
 		gap: 1rem;
 		width: 50%;
-		height: 55rem;
+
 	
 	}
 
@@ -99,7 +100,7 @@
 	&__div {
 		width: 100%;
 		position: relative;
-		padding-bottom: 1em;
+		
 		top: 0;
 	}
 
@@ -314,8 +315,8 @@
 .form__error {
 	color: red;
 	font-size: 1.4rem;
-	position: absolute;
-
+position: static;
+bottom: 0;
 	left: 0;
 	width: 100%;
 }
@@ -330,6 +331,8 @@
 	background-color: #ccc;
 	cursor: not-allowed;
 }
+
+
 
 @media screen and (max-width: 900px) {
 	.form {
@@ -347,6 +350,8 @@
 			gap: 2rem;
 		}
 	}
+
+
 }
 
 @media screen and (max-width: 600px) {
@@ -365,5 +370,15 @@
 		&__previewContainer {
 			width: 100%;
 		}
+
+	&__topButtons {
+		bottom: 0;
+		right: 0;
+		left: 0;
+		display: flex;
+		justify-content: center;
+		align-items: end;
+	
+	}
 	}
 }
