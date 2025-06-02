@@ -6,6 +6,7 @@ import { db } from '../../../utils/firebase.browser';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { useAuth } from '@/context/AuthContext';
 import { toast } from 'sonner';
+import { useRouter } from 'next/navigation';
 import {
 	getAuth,
 	reauthenticateWithCredential,
@@ -17,6 +18,7 @@ import PasswordChangeModal from './PasswordChangeModal';
 const ProfilePage = () => {
 	const { user } = useAuth();
 	const auth = getAuth();
+	const router = useRouter();
 
 	const [profile, setProfile] = useState({
 		companyName: '',
@@ -106,8 +108,24 @@ const ProfilePage = () => {
 		await updatePassword(auth.currentUser!, newPassword);
 	};
 
+	const handleBack = () => {
+		// Smart back button: try browser back, fallback to homepage
+		if (window.history.length > 1) {
+			router.back();
+		} else {
+			router.push('/');
+		}
+	};
+
 	return (
 		<div className={styles.profileContainer}>
+			<div className={styles.topNav}>
+				<button className={styles.backButton} onClick={handleBack}>
+					<i className="fas fa-arrow-left"></i>
+					Back
+				</button>
+			</div>
+
 			<h1 className={styles.title}>
 				<i className="fas fa-user-circle"></i>
 				My Profile
