@@ -89,8 +89,8 @@ export default function Login() {
 			router.push(redirectedFrom || '/');
 
 			setTimeout(() => {
-				console.log('Redirecting to:', redirectedFrom);
 				router.push(redirectedFrom || '/');
+				window.location.reload();
 			}, 3000);
 		} catch (err) {
 			console.error('Login or Session Error:', err);
