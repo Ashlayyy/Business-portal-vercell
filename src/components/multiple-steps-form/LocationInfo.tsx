@@ -117,13 +117,13 @@ const LocationInfo: React.FC<LocationInfoProps> = ({
 		}
 
 		setErrors(currentErrors);
-const requiredFieldsFilled =
+const requiredFieldsFilled = 
 	formData.place &&
-	formData.date &&
 	formData.postal_code &&
 	formData.addr &&
 	(formData.type !== 'event' ||
-		( formData.date && formData.start_time && formData.end_time));
+		(formData.date && formData.start_time && formData.end_time));
+
 
 setIsNextDisabled(hasErrors || !requiredFieldsFilled);
 	}, [
