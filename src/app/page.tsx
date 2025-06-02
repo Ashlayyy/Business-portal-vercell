@@ -1,8 +1,10 @@
 'use client';
 import styles from './page.module.scss';
 import Activiteiten from '@/components/Activiteiten/activiteiten';
-import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
+import AddNewButton from '@/components/AddNewButton/AddNewButton';
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export default function Home() {
 	const searchParams = useSearchParams();
@@ -11,13 +13,12 @@ export default function Home() {
 
 	return (
 		<>
-		
-				<Link className={styles.modal__button} href="/create"> <i className="fa-solid fa-plus"></i> Add new</Link>
-		
-
+			<AddNewButton />
 			<main className={styles.page__main}>
-				<Activiteiten filter={filter} />
+				<Activiteiten filter={filter} contentType="all" />
 			</main>
+			<Analytics />
+			<SpeedInsights />
 		</>
 	);
 }
