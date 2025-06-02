@@ -87,6 +87,11 @@ export default function Login() {
 			setLoginSuccess(true);
 			const redirectedFrom = searchParams.get('redirectedFrom');
 			router.push(redirectedFrom || '/');
+
+			setTimeout(() => {
+				console.log('Redirecting to:', redirectedFrom);
+				router.push(redirectedFrom || '/');
+			}, 3000);
 		} catch (err) {
 			console.error('Login or Session Error:', err);
 			setLoading(false);

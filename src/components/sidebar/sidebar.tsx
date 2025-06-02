@@ -173,7 +173,7 @@ const Sidebar = ({ isOpen, setIsOpen, isAdmin }: SidebarProps) => {
 							<SidebarItem
 								onClick={() => setIsOpen(false)}
 								href="/activities/approve"
-								label="Unapproved activities"
+								label="Pending Activities"
 							/>
 						</ul>
 					</nav>
