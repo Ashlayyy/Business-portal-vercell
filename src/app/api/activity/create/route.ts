@@ -56,7 +56,6 @@ export async function POST(request: Request) {
 				'name',
 				'addr',
 				'description',
-				'date',
 				'place',
 				'postal_code',
 			];
