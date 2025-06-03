@@ -140,7 +140,6 @@ export async function PUT(
 			'name',
 			'addr',
 			'description',
-			'date',
 			'place',
 			'postal_code',
 		];
